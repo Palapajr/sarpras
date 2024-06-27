@@ -28,14 +28,14 @@
         <div class="container-fluid">
           <div class="row">
             <div class="col-12">
-  
+
               <div class="card">
                 <div class="card-header">
                   <h3 class="card-title">@yield('title')</h3>
                   <div class="card-tools">
                     <ul class="nav nav-pills ml-auto">
                       <li class="nav-item">
-                        <a type="button" class="btn btn-block btn-outline-success"><i class="fas fa-plus"></i> Success</a>
+                        <a href="{{ route('user.create') }}" class="btn btn-block btn-outline-success"><i class="fas fa-plus"></i> Add</a>
                       </li>
 
                     </ul>
@@ -78,34 +78,6 @@
     <!-- /.content -->
   </div>
 </div>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-    <div class="container">
-        <table border="1">
-            <tr>
-                <td>nama</td>
-                <td>email</td>
-            </tr>
-            @foreach ($data as $d)
-            <tr>
-                <td>{{ $d->name }}</td>
-                <td>{{ $d->email }}</td>
-            </tr>
-            @endforeach
-        </table>
-    </div>
-
-</body>
-
-</html>
 @endsection
 
 
