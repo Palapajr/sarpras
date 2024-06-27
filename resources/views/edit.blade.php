@@ -1,6 +1,6 @@
 @extends('layout.main')
 
-@section('title', 'Create')
+@section('title', 'Edit')
 
 @section('content')
 
@@ -36,19 +36,20 @@
                   <h3 class="card-title">@yield('title')</h3>
               </div>
 
-                <form action="{{ route('user.store') }}" method="POST">
+                <form action="{{ route('user.update',['id' => $data->id]) }}" method="POST">
                   @csrf
+                  @method('PUT')
                     <div class="card-body">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                        <input type="email" name="email" class="form-control" value="{{ $data->email }}" id="exampleInputEmail1" placeholder="Enter email">
                         @error('email')
                             <small>{{ $message }}</small>
                         @enderror
                       </div>
                       <div class="form-group">
                         <label for="exampleInputnama">Nama</label>
-                        <input type="text" name="nama" class="form-control" id="exampleInputnama" placeholder="Enter name">
+                        <input type="text" name="nama" class="form-control" value="{{ $data->name }}" id="exampleInputnama" placeholder="Enter name">
                           @error('nama')
                               <small>{{ $message }}</small>
                           @enderror

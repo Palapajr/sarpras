@@ -57,10 +57,39 @@
                             <td>{{ $d->name }}</td>
                             <td>{{ $d->email }}</td>
                             <td>
-                              <a type="button" class="btn btn-flat btn-outline-primary"><i class="fas fa-edit"></i></a>
-                              <a type="button" class="btn btn-flat btn-outline-danger"><i class="fas fa-trash"></i></a>
+                              <a href="{{ route('user.edit',['id' => $d->id]) }}" class="btn btn-flat btn-outline-primary"><i class="fas fa-edit"></i></a>
+                              <a data-toggle="modal" data-target="#modal-hapus{{ $d->id }}" class="btn btn-flat btn-outline-danger"><i class="fas fa-trash"></i></a>
                             </td>
-                        </tr>
+                          </tr>
+
+                            <!-- Modal Hapus-->
+                            <div class="modal fade" id="modal-hapus{{ $d->id }}">
+                              <div class="modal-dialog">
+                                <div class="modal-content">
+                                  <div class="modal-header">
+                                    <h4 class="modal-title">Confirmation</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+                                    <p>are you sure you want to delete the data <b>{{ $d->name }}</b> </p>
+                                  </div>
+                                  <div class="modal-footer justify-content-between">
+                                    <form action="{{ route('user.delete',['id' => $d->id]) }}" method="POST">
+                                      @csrf
+                                      @method('DELETE')
+                                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                      <button type="submit" class="btn btn-danger">Delete Data</button>
+                                    </form>
+                                  </div>
+                                </div>
+                                <!-- /.modal-content -->
+                              </div>
+                              <!-- /.modal-dialog -->
+                            </div>
+                            <!-- end Modal Hapus-->
+
                         @endforeach
                     </tbody>
                   </table>
@@ -78,6 +107,7 @@
     <!-- /.content -->
   </div>
 </div>
+
 @endsection
 
 
