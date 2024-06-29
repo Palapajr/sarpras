@@ -93,14 +93,14 @@
 
         <!-- Menu -->
         <li class="nav-item">
-          <a href="{{ route('admin.dashboard') }}" class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}">
+          <a href="{{ url('/') }}" class="nav-link {{ Request::is('/') ? 'active' : '' }}">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>Dashboard</p>
           </a>
         </li>
 
         <li class="nav-item">
-          <a href="{{ route('admin.index') }}" class="nav-link {{ Request::is('index') ? 'active' : '' }}">
+          <a href="{{ url('user') }}" class="nav-link {{ Request::is('user') ? 'active' : '' }}">
             <i class="far fa-user nav-icon"></i>
             <p>Data User</p>
           </a>

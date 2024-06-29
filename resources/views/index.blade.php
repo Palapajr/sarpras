@@ -35,7 +35,7 @@
                   <div class="card-tools">
                     <ul class="nav nav-pills ml-auto">
                       <li class="nav-item">
-                        <a href="{{ route('admin.user.create') }}" class="btn btn-block btn-outline-success"><i class="fas fa-plus"></i> Add</a>
+                        <a href="{{ route('user.create') }}" class="btn btn-block btn-outline-success"><i class="fas fa-plus"></i> Add</a>
                       </li>
 
                     </ul>
@@ -57,7 +57,7 @@
                             <td>{{ $d->name }}</td>
                             <td>{{ $d->email }}</td>
                             <td>
-                              <a href="{{ route('admin.user.edit',['id' => $d->id]) }}" class="btn btn-flat btn-outline-primary"><i class="fas fa-edit"></i></a>
+                              <a href="{{ route('user.edit',['id' => $d->id]) }}" class="btn btn-flat btn-outline-primary"><i class="fas fa-edit"></i></a>
                               <a data-toggle="modal" data-target="#modal-hapus{{ $d->id }}" class="btn btn-flat btn-outline-danger"><i class="fas fa-trash"></i></a>
                             </td>
                           </tr>
@@ -76,7 +76,7 @@
                                     <p>are you sure you want to delete the data <b>{{ $d->name }}</b> </p>
                                   </div>
                                   <div class="modal-footer justify-content-between">
-                                    <form action="{{ route('admin.user.delete',['id' => $d->id]) }}" method="POST">
+                                    <form action="{{ route('user.delete',['id' => $d->id]) }}" method="POST">
                                       @csrf
                                       @method('DELETE')
                                       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

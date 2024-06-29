@@ -22,9 +22,10 @@ Route::post('/login-proses', [LoginController::class, 'login_proses',])->name('l
 Route::get('/logout', [LoginController::class, 'logout',])->name('logout');
 
 //Middleware biar tidak bisa back ketika user sudah logout
-Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], function () {
+Route::group(['middleware' => ['auth']], function () {
+    // Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], function () {
     //dashboard
-    Route::get('/dashboard', [HomeController::class, 'dashboard',])->name('dashboard');
+    Route::get('/', [HomeController::class, 'dashboard',])->name('dashboard');
 
     //data user
     Route::get('/user', [HomeController::class, 'index'])->name('index');
